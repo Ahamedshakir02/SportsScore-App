@@ -2,29 +2,31 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const MatchItem = ({ match }) => (
-  <View style={styles.matchItem}>
-    <View style={styles.matchHeader}>
-      <Text style={styles.matchCompetition}>{match.competition}</Text>
-      <TouchableOpacity>
-        <Icon
-          name={match.notification ? 'notifications' : 'notifications-off'}
-          size={20}
-          color="#666"
-        />
-      </TouchableOpacity>
+export function MatchItem({ match }) {
+  return (
+    <View style={styles.matchItem}>
+      <View style={styles.matchHeader}>
+        <Text style={styles.matchCompetition}>{match.competition}</Text>
+        <TouchableOpacity>
+          <Icon
+            name={match.notification ? 'notifications' : 'notifications-off'}
+            size={20}
+            color="#666"
+          />
+        </TouchableOpacity>
+      </View>
+      <View style={styles.teams}>
+        {match.teams.map((team, index) => (
+          <View key={index} style={styles.team}>
+            <Image source={{ uri: team.logo }} style={styles.logo} />
+            <Text style={styles.teamName}>{team.name}</Text>
+          </View>
+        ))}
+      </View>
+      <Text style={styles.matchTime}>{match.time}</Text>
     </View>
-    <View style={styles.teams}>
-      {match.teams.map((team, index) => (
-        <View key={index} style={styles.team}>
-          <Image source={{ uri: team.logo }} style={styles.logo} />
-          <Text style={styles.teamName}>{team.name}</Text>
-        </View>
-      ))}
-    </View>
-    <Text style={styles.matchTime}>{match.time}</Text>
-  </View>
-);
+  );
+}
 
 const styles = StyleSheet.create({
   matchItem: {
@@ -72,5 +74,3 @@ const styles = StyleSheet.create({
     color: '#888',
   },
 });
-
-export default MatchItem;

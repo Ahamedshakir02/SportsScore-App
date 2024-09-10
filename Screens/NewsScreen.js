@@ -1,10 +1,18 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
-const WatchScreen = () => (
-  <View>
-    <Text>News Screen</Text>
-  </View>
-);
+export default function NewsScreen() {
+  return (
+    <View style={styles.container}>
+      <Text>Watch Screen</Text>
+    </View>
+  );
+}
 
-export default WatchScreen;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
