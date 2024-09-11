@@ -20,8 +20,12 @@ export function MatchItem({ match }) {
           <View key={index} style={styles.team}>
             <Image source={{ uri: team.logo }} style={styles.logo} />
             <Text style={styles.teamName}>{team.name}</Text>
-            <Text style={styles.score}>{team.score}</Text>
           </View>
+        ))}
+      </View>
+      <View style={styles.teamscore}>
+        {match.teams.map((team, index) =>(
+          <Text style={styles.score}>{team.score}</Text>
         ))}
       </View>
       <Text style={styles.matchTime}>{match.time}</Text>
@@ -48,9 +52,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 10,
   },
+  teamscore:{
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent:'space-around'
+  },
   score:{
-    fontSize: 18,
-    color: '#666',
+    fontSize: 30,
+    textAlign: 'center',
+    color: '#333',
   },
   matchCompetition: {
     fontSize: 14,
@@ -59,7 +69,7 @@ const styles = StyleSheet.create({
   },
   teams: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     marginBottom: 10,
   },
   team: {
@@ -67,16 +77,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   logo: {
-    width: 40,
-    height: 40,
-    marginRight: 10,
+    width: 50,
+    height: 50,
+    marginRight: 5,
   },
   teamName: {
-    fontSize: 16,
+    fontSize: 13,
     fontWeight: '500',
+    color:'darkgreen'
   },
   matchTime: {
     fontSize: 12,
     color: '#888',
+    textAlign:'center',
   },
 });

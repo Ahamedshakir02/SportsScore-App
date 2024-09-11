@@ -43,15 +43,15 @@ export function SportsScreen({ sport, searchQuery }) {
 
 const styles = StyleSheet.create({
   sportScreen: {
-    padding: 11,
+    padding: 10,
     backgroundColor: '#FFFFFF',
   },
   dateSelector: {
     flexDirection: 'row',
-    marginBottom: 10,
+    marginBottom: 20,
     backgroundColor: '#F9F9F9',
-    paddingVertical: 25,
-    borderRadius: 15,
+    paddingVertical: 10,
+    borderRadius: 10,
   },
   dateText: {
     marginHorizontal: 10,

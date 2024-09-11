@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { View, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -55,7 +55,7 @@ export const TopTabNavigator = () => {
         tabBarStyle: styles.tabBar,
       }}>
       {sportsData.sports.map(sport => (
-        <TopTabs.Screen key={sport.id} name={sport.name} >
+        <TopTabs.Screen key={sport.id} name={sport.name}>
           {props => <SportsScreen {...props} sport={sport} searchQuery={searchQuery} />}
         </TopTabs.Screen>
       ))}
@@ -96,3 +96,4 @@ const styles = StyleSheet.create({
     marginLeft: 5,
   },
 });
+
